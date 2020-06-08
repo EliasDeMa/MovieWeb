@@ -25,6 +25,19 @@ namespace MovieWeb.Models
 
         [DisplayName("Release Datum")]
         [DataType(DataType.DateTime)]
-        public DateTime ReleaseDate { get; set; }
+        [Range(typeof(DateTime), "1/1/1900", "1/1/2070")]
+        public DateTime? ReleaseDate
+        {
+            get
+            {
+                return this.ReleaseDate.HasValue
+                    ? this.ReleaseDate.Value
+                    : DateTime.Now;
+            }
+            set
+            {
+                this.ReleaseDate = value;
+            }
+        }
     }
 }
