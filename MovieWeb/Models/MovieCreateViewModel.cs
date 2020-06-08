@@ -24,20 +24,7 @@ namespace MovieWeb.Models
         public string Genre { get; set; }
 
         [DisplayName("Release Datum")]
-        [DataType(DataType.DateTime)]
         [Range(typeof(DateTime), "1/1/1900", "1/1/2070")]
-        public DateTime? ReleaseDate
-        {
-            get
-            {
-                return this.ReleaseDate.HasValue
-                    ? this.ReleaseDate.Value
-                    : DateTime.Now;
-            }
-            set
-            {
-                this.ReleaseDate = value;
-            }
-        }
+        public DateTime ReleaseDate { get; set; }
     }
 }
