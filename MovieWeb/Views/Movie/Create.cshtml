@@ -21,7 +21,7 @@
 
         <div class="form-group">
             <label asp-for="ReleaseDate"></label>
-            <input class="form-control" asp-for="ReleaseDate" type="date"/>
+            <input class="form-control" asp-for="ReleaseDate" type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")"/>
             <span class="text-danger" asp-validation-for="ReleaseDate"></span>
         </div>
 
