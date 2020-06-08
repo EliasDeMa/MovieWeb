@@ -7,7 +7,33 @@
 <p>@Model.Description</p>
 
 <strong>Genre</strong>
-<p>@Model.Genre</p>
+<p>
+@ReleaseDate(Model.Genre)
+</p>
 
-<strong>Release Date</strong>
-<p>@Model.ReleaseDate.ToShortDateString()</p>
+<strong>Available</strong>
+<p>@CalculateReleaseDate(Model.ReleaseDate)</p>
+
+@functions {
+    string ReleaseDate(string genre)
+    {
+        if (String.IsNullOrEmpty(genre))
+        {
+            return "Geen genre beschikbaar";
+        }
+        else
+        {
+            return genre;
+        }
+    }
+
+    string CalculateReleaseDate(DateTime releaseDate)
+    {
+        if (releaseDate < DateTime.Now)
+            return "Film is out now";
+
+        var amount = (releaseDate - DateTime.Now).Days;
+
+        return $"Film will release in {amount} days";
+    }
+}
