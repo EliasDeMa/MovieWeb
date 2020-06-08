@@ -59,6 +59,11 @@ namespace MovieWeb.Controllers
         [HttpPost]
         public IActionResult Create(MovieCreateViewModel movie)
         {
+            if (!TryValidateModel(movie))
+            {
+                return View(movie);
+            }
+
             _movieDatabase.Insert(new Movie()
             {
                 Title = movie.Title,
