@@ -32,8 +32,8 @@
         if (releaseDate < DateTime.Now)
             return "Film is out now";
 
-        var amount = (releaseDate - DateTime.Now).Days;
+        var amount = Math.Ceiling((releaseDate - DateTime.Now).TotalDays);
 
-        return $"Film will release in {amount} days";
+        return $"Film will release in {amount} day{(amount > 1 ? "s" : "")}";
     }
 }
