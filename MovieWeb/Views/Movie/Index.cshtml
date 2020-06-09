@@ -7,18 +7,27 @@
     <table cellpadding="5">
         <tr>
             <th>Title</th>
+            <th></th>
+            <th></th>
         </tr>
 
         @foreach(var item in Model)
         {
-        <tr>
-            <td>
-                @item.Title
-                <a asp-controller="Movie"
-                   asp-action="Detail" 
-                   asp-route-id="@item.Id">Detail</a>
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @item.Title
+        </td>
+        <td>
+            <a asp-controller="Movie"
+               asp-action="Detail"
+               asp-route-id="@item.Id">Detail</a>
+        </td>
+        <td>
+            <a asp-controller="Movie"
+               asp-action="Edit"
+               asp-route-id="@item.Id">Edit</a>
+        </td>
+    </tr>
         }
     </table>
 } else {
