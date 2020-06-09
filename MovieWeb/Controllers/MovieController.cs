@@ -112,7 +112,6 @@ namespace MovieWeb.Controllers
             });
 
             return RedirectToAction("Detail", new { Id = id });
-
         }
     }
 }
