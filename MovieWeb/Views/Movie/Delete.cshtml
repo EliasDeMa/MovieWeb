@@ -2,7 +2,7 @@
 
 <p>Are you sure you want to delete @Model.Title</p>
 
-<form asp-controller="Movie" asp-action="Delete" asp-route-id="@Model.Id" method="post">
+<form asp-controller="Movie" asp-action="ConfirmDelete" asp-route-id="@Model.Id" method="post">
     <button class="btn btn-danger" type="submit">
         Confirm
     </button>

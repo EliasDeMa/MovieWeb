@@ -118,7 +118,7 @@ namespace MovieWeb.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(int id, MovieDeleteViewModel _movie)
+        public IActionResult ConfirmDelete(int id)
         {
             _movieDatabase.Delete(id);
 
