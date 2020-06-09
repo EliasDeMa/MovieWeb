@@ -31,14 +31,9 @@ namespace MovieWeb.Controllers
             return View(movies);
         }
 
-        public IActionResult Detail(int? id)
+        public IActionResult Detail(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            Movie movieFromDb = _movieDatabase.GetMovie((int)id);
+            Movie movieFromDb = _movieDatabase.GetMovie(id);
 
             MovieDetailViewModel movie = new MovieDetailViewModel()
             {
@@ -75,14 +70,9 @@ namespace MovieWeb.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Edit(int? id)
+        public IActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            Movie movieFromDb = _movieDatabase.GetMovie((int)id);
+            Movie movieFromDb = _movieDatabase.GetMovie(id);
 
             MovieEditViewModel movie = new MovieEditViewModel()
             {
